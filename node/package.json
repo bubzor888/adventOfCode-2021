@@ -1,6 +1,6 @@
 {
   "name": "advent-of-code-template",
-  "logName": "Advent of Code Template",
+  "logName": "Advent of Code 2021",
   "version": "1.0.0",
   "description": "Advent of Code Template using Node JS for Current Year.",
   "main": "run.js",
