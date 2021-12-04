@@ -13,6 +13,8 @@
 
 # Gradle
 .gradle
+/kotlin/
+/build/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
