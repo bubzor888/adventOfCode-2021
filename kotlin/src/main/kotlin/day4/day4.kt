@@ -27,8 +27,7 @@ private fun parseBoards(input: List<String>): List<List<List<String>>> {
     val result : MutableList<MutableList<List<String>>> = mutableListOf()
     input.subList(2, input.size)
         .filter { string -> string.isNotBlank() }
-        .forEachIndexed()
-        { index, string ->
+        .forEachIndexed() { index, string ->
             val row = pattern.findAll(string).toList().map { result -> result.value }
             if (index % 5 == 0) {
                 //First row on each board makes a new board
