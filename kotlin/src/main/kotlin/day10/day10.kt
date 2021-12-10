@@ -2,7 +2,6 @@ package day10
 
 import java.io.File
 import java.nio.file.Paths
-import kotlin.math.exp
 import kotlin.test.assertEquals
 
 fun main() {
@@ -26,7 +25,7 @@ fun main() {
 
 private fun execute(input: List<String>): Int {
     val charMap = mapOf('(' to ')', '[' to ']', '{' to '}', '<' to '>')
-    val charValue = mapOf(')' to 3, ']' to 57, '}' to 1197, '>' to 25137)
+    val valueMap = mapOf(')' to 3, ']' to 57, '}' to 1197, '>' to 25137)
 
     return input.fold(0) { acc, line ->
         val expected = ArrayDeque<Char>()
@@ -36,8 +35,8 @@ private fun execute(input: List<String>): Int {
                 in charMap.keys -> expected.addFirst(charMap[ch]!!)
                 expected.first() -> expected.removeFirst()
                 else -> {
-                    newPoints = charValue[ch]!!
-                    break;
+                    newPoints = valueMap[ch]!!
+                    break
                 }
             }
         }
@@ -47,7 +46,7 @@ private fun execute(input: List<String>): Int {
 
 private fun execute2(input: List<String>): Long {
     val charMap = mapOf('(' to ')', '[' to ']', '{' to '}', '<' to '>')
-    val charValue = mapOf(')' to 1, ']' to 2, '}' to 3, '>' to 4)
+    val valueMap = mapOf(')' to 1, ']' to 2, '}' to 3, '>' to 4)
     val lineScores = mutableListOf<Long>()
 
     input.forEach { line ->
@@ -60,13 +59,13 @@ private fun execute2(input: List<String>): Long {
                 expected.first() -> expected.removeFirst()
                 else -> {
                     corrupted = true
-                    break;
+                    break
                 }
             }
         }
         //Now score if incomplete
         if (!corrupted && expected.size > 0) {
-            lineScores.add(expected.fold(0L) { acc, ch -> acc * 5 + charValue[ch]!! } )
+            lineScores.add(expected.fold(0L) { acc, ch -> acc * 5 + valueMap[ch]!! } )
         }
     }
 
