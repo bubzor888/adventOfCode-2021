@@ -8,19 +8,19 @@ fun main() {
     val path = Paths.get("").toAbsolutePath().toString()
 
     val test1 = listOf("")
-//    val testFile = File("$path\\src\\main\\kotlin\\dayX\\testInput.txt")
-//    val test1 = testFile.readLines()
+//    val test1 = File("$path\\src\\main\\kotlin\\dayX\\testInput.txt").readLines()
 
     assertEquals(0, execute(test1))
 
     println("Tests passed, attempting input")
 
-    val inputFile = File("$path\\src\\main\\kotlin\\dayX\\input.txt")
-//    println("Final Result 1: ${execute(inputFile.readLines())}")
-//    println("Final Result 2: ${execute2(inputFile.readLines())}")
+    val input = File("$path\\src\\main\\kotlin\\dayX\\input.txt").readLines()
+    //Alternative to read whole file, use .readText()
 
-    //Alternative to read whole file, when splitting on \n is easier
-    //inputFile.readText()
+//    println("Final Result 1: ${execute(input)}")
+//    println("Final Result 2: ${execute2(input)}")
+
+
 }
 
 private fun execute(input: List<String>): Int {
